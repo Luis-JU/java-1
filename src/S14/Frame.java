@@ -4,10 +4,6 @@
  */
 package S14;
 
-import java.util.ArrayList;
-import java.util.List;
-import s09.*;
-import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,7 +20,8 @@ public class Frame extends javax.swing.JFrame {
     public Frame() {
         initComponents();
         this.setResizable(false);
-        this.setSize(544, 879);
+        this.setSize(702, 879);
+        
     }
 
     /**
@@ -37,6 +34,7 @@ public class Frame extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jCombo1 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -44,10 +42,19 @@ public class Frame extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTxt1 = new javax.swing.JTextField();
+        jTxt3 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         JTable = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jTxt1 = new javax.swing.JTextField();
+        jTxt2 = new javax.swing.JTextField();
+        JCombo = new javax.swing.JComboBox<>();
+
+        jCombo1.setBackground(new java.awt.Color(0, 0, 0));
+        jCombo1.setFont(new java.awt.Font("Fira Code", 0, 18)); // NOI18N
+        jCombo1.setForeground(new java.awt.Color(204, 204, 204));
+        jCombo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -101,7 +108,7 @@ public class Frame extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
@@ -120,18 +127,19 @@ public class Frame extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 510, 80));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 670, 80));
 
-        jTxt1.setBackground(new java.awt.Color(51, 51, 51));
-        jTxt1.setFont(new java.awt.Font("Fira Code", 0, 18)); // NOI18N
-        jTxt1.setForeground(new java.awt.Color(204, 204, 204));
-        jTxt1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true), "Varible 1", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Fira Code", 0, 18), new java.awt.Color(153, 153, 153))); // NOI18N
-        jPanel1.add(jTxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 490, 70));
+        jTxt3.setBackground(new java.awt.Color(51, 51, 51));
+        jTxt3.setFont(new java.awt.Font("Fira Code", 0, 18)); // NOI18N
+        jTxt3.setForeground(new java.awt.Color(204, 204, 204));
+        jTxt3.setText("0");
+        jTxt3.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true), "Varible 3", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Fira Code", 0, 18), new java.awt.Color(153, 153, 153))); // NOI18N
+        jPanel1.add(jTxt3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 650, 70));
 
         jLabel3.setFont(new java.awt.Font("Z003", 2, 21)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("Sample JUJU");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 120, -1, -1));
 
         JTable.setBackground(new java.awt.Color(51, 51, 51));
         JTable.setFont(new java.awt.Font("SansSerif.plain", 1, 20)); // NOI18N
@@ -141,15 +149,53 @@ public class Frame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "#", "Arista", "Area", "Volumen"
+                "#", "Ty", "Arista", "Area", "Volumen"
             }
         ));
         JTable.setGridColor(new java.awt.Color(51, 51, 51));
         JTable.setSelectionBackground(new java.awt.Color(102, 102, 102));
         JTable.setSelectionForeground(new java.awt.Color(153, 153, 153));
         jScrollPane1.setViewportView(JTable);
+        if (JTable.getColumnModel().getColumnCount() > 0) {
+            JTable.getColumnModel().getColumn(0).setResizable(false);
+            JTable.getColumnModel().getColumn(0).setPreferredWidth(5);
+            JTable.getColumnModel().getColumn(2).setResizable(false);
+            JTable.getColumnModel().getColumn(3).setResizable(false);
+            JTable.getColumnModel().getColumn(4).setResizable(false);
+        }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, 570));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 650, 310));
+
+        jButton1.setBackground(new java.awt.Color(255, 51, 51));
+        jButton1.setFont(new java.awt.Font("DejaVu Sans Light", 0, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Resetear");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 800, 240, -1));
+
+        jTxt1.setBackground(new java.awt.Color(51, 51, 51));
+        jTxt1.setFont(new java.awt.Font("Fira Code", 0, 18)); // NOI18N
+        jTxt1.setForeground(new java.awt.Color(204, 204, 204));
+        jTxt1.setText("0");
+        jTxt1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true), "Varible 1", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Fira Code", 0, 18), new java.awt.Color(153, 153, 153))); // NOI18N
+        jPanel1.add(jTxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 650, 70));
+
+        jTxt2.setBackground(new java.awt.Color(51, 51, 51));
+        jTxt2.setFont(new java.awt.Font("Fira Code", 0, 18)); // NOI18N
+        jTxt2.setForeground(new java.awt.Color(204, 204, 204));
+        jTxt2.setText("0");
+        jTxt2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true), "Varible 2", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Fira Code", 0, 18), new java.awt.Color(153, 153, 153))); // NOI18N
+        jPanel1.add(jTxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 650, 70));
+
+        JCombo.setBackground(new java.awt.Color(0, 0, 0));
+        JCombo.setFont(new java.awt.Font("Fira Code", 0, 18)); // NOI18N
+        JCombo.setForeground(new java.awt.Color(204, 204, 204));
+        JCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ortoedro", "Icosaedro" }));
+        jPanel1.add(JCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 650, -1));
 
         getContentPane().add(jPanel1, "card2");
 
@@ -157,23 +203,48 @@ public class Frame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ArrayList<Icosaedro> icos = new ArrayList<Icosaedro>(); 
         DefaultTableModel model = (DefaultTableModel) JTable.getModel();
-        String value = jTxt1.getText();
+        String combo = (String) JCombo.getSelectedItem();
         
         try {
-            Icosaedro ico = new Icosaedro(Double.valueOf(value));
-            model.addRow(new Object[]{
-                JTable.getRowCount() + 1,
-                ico.getArista(),
-                ico.getArea(),
-                ico.getVOlumen()
-            });
+            double txt1 = Double.valueOf(jTxt1.getText());
+            double txt2 = Double.valueOf(jTxt2.getText());
+            double txt3 = Double.valueOf(jTxt3.getText());
+            System.out.println(combo);
+            if(combo == "Icosaedro") {
+                Icosaedro ico = new Icosaedro(Double.valueOf(txt1));
+                model.addRow(new Object[]{
+                    JTable.getRowCount() + 1,
+                    "Icosaedro",
+                    ico.getArista(),
+                    ico.getArea(),
+                    ico.getVolumen()
+                });
+            }
+            if(combo == "Ortoedro") {
+                Ortoedro or = new Ortoedro(txt1, txt2, txt3);
+                model.addRow(new Object[]{
+                    JTable.getRowCount() + 1,
+                    "Ortoedro",
+                    or.getDiagonal(),
+                    or.getArea(),
+                    or.getVolumen()
+                });
+            }
+            
             JTable.setModel(model);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        DefaultTableModel model = (DefaultTableModel) JTable.getModel();
+        model.setRowCount(0);
+        JTable.setModel(model);
+        jTxt3.setText("");
+        jTxt3.requestFocus();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,7 +279,6 @@ public class Frame extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -218,9 +288,12 @@ public class Frame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> JCombo;
     private javax.swing.JTable JTable;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jCombo1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -230,5 +303,7 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTxt1;
+    private javax.swing.JTextField jTxt2;
+    private javax.swing.JTextField jTxt3;
     // End of variables declaration//GEN-END:variables
 }
