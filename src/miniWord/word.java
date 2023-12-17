@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package miniWord;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -10,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author juju
  */
 public class word extends javax.swing.JFrame {
-    PersonalFile file;
+    PersonalFile file = new PersonalFile();
     /**
      * Creates new form word
      */
@@ -27,20 +29,69 @@ public class word extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        JArea = new javax.swing.JTextArea();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jButton4 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         Open = new javax.swing.JButton();
         save = new javax.swing.JButton();
         saveAs = new javax.swing.JButton();
-        JtxtInformation = new javax.swing.JTextField();
         Cif = new javax.swing.JButton();
         DesCif = new javax.swing.JButton();
+        Ejem = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JArea = new javax.swing.JTextArea();
+        JtxtInformation = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Mini word");
+        setAutoRequestFocus(false);
+        setBackground(new java.awt.Color(10, 0, 0));
+        setResizable(false);
+        getContentPane().setLayout(new java.awt.CardLayout());
 
-        JArea.setColumns(20);
-        JArea.setRows(5);
-        jScrollPane1.setViewportView(JArea);
+        jPanel1.setBackground(new java.awt.Color(222, 220, 232));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel4.setBackground(new java.awt.Color(209, 215, 234));
+
+        jButton4.setBackground(new java.awt.Color(255, 51, 51));
+        jButton4.setFont(new java.awt.Font("DejaVu Sans Light", 0, 24)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setText("Reset");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Z003", 2, 21)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("Sample JUJU");
+
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("MINI WORD");
+
+        jLabel5.setBackground(new java.awt.Color(255, 153, 153));
+        jLabel5.setFont(new java.awt.Font("SansSerif.plain", 0, 21)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 210, 140));
+        jLabel5.setText("▪");
+
+        jLabel6.setBackground(new java.awt.Color(255, 153, 153));
+        jLabel6.setFont(new java.awt.Font("SansSerif.plain", 0, 21)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(204, 229, 163));
+        jLabel6.setText("▪");
+
+        jLabel2.setBackground(new java.awt.Color(255, 106, 81));
+        jLabel2.setFont(new java.awt.Font("SansSerif.plain", 0, 21)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 153, 153));
+        jLabel2.setText("▪");
 
         Open.setText("Abrir");
         Open.addActionListener(new java.awt.event.ActionListener() {
@@ -63,13 +114,6 @@ public class word extends javax.swing.JFrame {
             }
         });
 
-        JtxtInformation.setEditable(false);
-        JtxtInformation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JtxtInformationActionPerformed(evt);
-            }
-        });
-
         Cif.setText("Cifrar");
         Cif.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,53 +128,100 @@ public class word extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JtxtInformation, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(DesCif, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Cif, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(saveAs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(save, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Open, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(22, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(Ejem))
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Open, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(save)
+                                .addComponent(saveAs, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Cif, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DesCif, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel6))
+                            .addComponent(jLabel1))
+                        .addGap(25, 25, 25))))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(Open)
-                        .addGap(30, 30, 30)
-                        .addComponent(save)
-                        .addGap(29, 29, 29)
-                        .addComponent(saveAs)
-                        .addGap(31, 31, 31)
-                        .addComponent(Cif)
-                        .addGap(37, 37, 37)
-                        .addComponent(DesCif))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(JtxtInformation, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Open)
+                .addGap(77, 77, 77)
+                .addComponent(save)
+                .addGap(17, 17, 17)
+                .addComponent(saveAs)
+                .addGap(27, 27, 27)
+                .addComponent(Cif)
+                .addGap(27, 27, 27)
+                .addComponent(DesCif)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                .addComponent(Ejem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(jButton4)
+                .addGap(25, 25, 25))
         );
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 670));
+
+        JArea.setBackground(new java.awt.Color(222, 220, 232));
+        JArea.setColumns(20);
+        JArea.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        JArea.setForeground(new java.awt.Color(0, 0, 0));
+        JArea.setLineWrap(true);
+        JArea.setRows(5);
+        JArea.setWrapStyleWord(true);
+        JArea.setBorder(null);
+        jScrollPane1.setViewportView(JArea);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 300, 670));
+
+        JtxtInformation.setEditable(false);
+        JtxtInformation.setBackground(new java.awt.Color(209, 215, 234));
+        JtxtInformation.setFont(new java.awt.Font("Noto Sans CJK JP DemiLight", 0, 14)); // NOI18N
+        JtxtInformation.setBorder(null);
+        JtxtInformation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JtxtInformationActionPerformed(evt);
+            }
+        });
+        jPanel1.add(JtxtInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 50));
+
+        getContentPane().add(jPanel1, "card2");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenActionPerformed
-        this.file = new PersonalFile();
         boolean selected = this.file.selectFile();
         if(selected) {
             String cont = this.file.readFile(this.file.getCurrentPath());
@@ -141,7 +232,7 @@ public class word extends javax.swing.JFrame {
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
         String text = JArea.getText().trim();
-        if(this.file != null) {
+        if(this.file == null) {
             this.file.writeFile(this.file.getFile(), text);
             this.updateInformationTxt();
             JOptionPane.showMessageDialog(null, "Guardado");
@@ -176,14 +267,20 @@ public class word extends javax.swing.JFrame {
     }
     
     private void DesCifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DesCifActionPerformed
-        try {
+       
             String text = JArea.getText().trim();
-            String newText = PersonalFile.decriptContent("jujuKeyPrivate", "RC2", text); 
-            JArea.setText(newText);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+            String newText = ""; 
+            
+        try {
+            newText = PersonalFile.decriptContent("jujuKeyPrivate", "RC2", text);
+        } catch (Exception ex) {
+            Logger.getLogger(word.class.getName()).log(Level.SEVERE, null, ex);
         }
+            JArea.setText(newText);
     }//GEN-LAST:event_DesCifActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jButton4ActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -223,9 +320,18 @@ public class word extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cif;
     private javax.swing.JButton DesCif;
+    private javax.swing.JTextField Ejem;
     private javax.swing.JTextArea JArea;
     private javax.swing.JTextField JtxtInformation;
     private javax.swing.JButton Open;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton save;
     private javax.swing.JButton saveAs;

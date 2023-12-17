@@ -48,10 +48,6 @@ public class PersonalFile {
         SecretKey key = new SecretKeySpec(pass.getBytes(), algorit);
         inst.init(inst.ENCRYPT_MODE, key);
         encrypt = inst.doFinal(txt.getBytes());
-        System.out.println(txt);
-        System.out.println(inst);
-        System.out.println(encrypt);
-        System.out.println(Base64.getEncoder().encodeToString(encrypt));
         return Base64.getEncoder().encodeToString(encrypt);
     }
     
@@ -88,7 +84,6 @@ public class PersonalFile {
             e.printStackTrace();
         }
     }
-    
     public String readFile (String path) {
         StringBuilder contend = new StringBuilder();
         try {
